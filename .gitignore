@@ -1,0 +1,10 @@
+## Compiled JavaScript files
+**/*.js.map
+.env
+firebase-debug.log
+
+# dirs
+coverage/
+dist/
+lib/
+node_modules/

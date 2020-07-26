@@ -1,0 +1,23 @@
+{
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "extends": ["airbnb-typescript-prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-useless-constructor": "off"
+  },
+  "overrides": [
+    {
+        "files": ["*.test.ts", "__mocks__/*"],
+        "rules": {
+            "@typescript-eslint/no-explicit-any": 0,
+            "class-methods-use-this": 0
+        }
+    }
+  ]
+}

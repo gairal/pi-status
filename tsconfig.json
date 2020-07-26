@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es2019"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@/*": ["./src/"]
+    },
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "es2019"
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "./jest.config.js", "__mocks__/", "test/"]
+}
