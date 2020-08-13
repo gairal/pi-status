@@ -1,7 +1,10 @@
 const PORTS = {
+	Anteater: 3019,
 	Cobra: 3011,
+	Credit: 3020,
 	Falcon: 3010,
 	Hippo: 3007,
+	Loanapp: 3001,
 	Lioness: 3005,
 	Mongo: 27017,
 	Redis: 6379,
@@ -13,10 +16,13 @@ const PORTS = {
 const MONGO_URL = `mongodb://127.0.0.1:${PORTS.Mongo}/autofi`;
 const REDIS_URL = `redis://127.0.0.1:${PORTS.Redis}`;
 const JWT_SECRET = 'secret';
+const ANTEATER_URL = `http://localhost:${PORTS.Anteater}`;
 const API_GATEWAY = `http://localhost:${PORTS.Falcon}`;
 const COBRA_URL = `http://localhost:${PORTS.Cobra}`;
+const CREDIT_URL = `http://localhost:${PORTS.Credit}`;
+const LOANAPP_URL = `http://localhost:${PORTS.Loanapp}`;
 const LIONESS_URL = `http://localhost:${PORTS.Lioness}`;
-const VEHICLE_SERVICE_URL = `http://hippo.pi.local`;
+const VEHICLE_SERVICE_URL = `http://localhost:${PORTS.Hippo}`;
 const SCORPION_URL = `http://localhost:${PORTS.Scorpion}`;
 const SMARTCOW_ENDPOINT = `http://localhost:${PORTS.Smartcow}`;
 const VENDOR_SIM_URL = `http://localhost:${PORTS.VendorSim}`;
@@ -31,6 +37,22 @@ const status = {
 	name: 'status',
 	script: `${WORKSPACE}/pi-status/dist/index.js`,
 };
+
+const falcon = {
+	name: 'falcon',
+	script: `${WORKSPACE}/autofi/falcon/built/bin/www.js`,
+	env: {
+		...ENV_COMMON,
+		COBRA_PROXY: COBRA_URL,
+		CREDIT_SERVICE_PROXY: CREDIT_URL,
+		DECISIONING_PROXY: SMARTCOW_ENDPOINT,
+		LOANAPP_PROXY: LOANAPP_URL,
+		METRIC_SERVICE_PROXY: ANTEATER_URL,
+		PORT: PORTS.Falcon,
+		REDIS_URL,
+		VEHICLE_SERVICE_PROXY: VEHICLE_SERVICE_URL,
+	}
+}
 
 const hippo = {
 	name: 'hippo',
@@ -73,7 +95,7 @@ const lioness = {
 		SMARTCOW_ENDPOINT,
 		REDIS_URL,
 		S3_MODE: 'local',
-		VEHICLE_SERVICE_PROXY_URL: `${VEHICLE_SERVICE_URL}/api/v1/inventory/import`,
+		VEHICLE_SERVICE_PROXY_URL: `${API_GATEWAY}/v1/vehicle-service/inventory/import`,
 		VENDOR_SIM_URL,
 	},
 };
@@ -87,4 +109,4 @@ const vendorSim = {
 	},
 };
 
-module.exports = { apps: [hippo, lioness, status, vendorSim] };
+module.exports = { apps: [falcon, hippo, lioness, status, vendorSim] };
