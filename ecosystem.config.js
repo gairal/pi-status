@@ -95,7 +95,7 @@ const lioness = {
 		SMARTCOW_ENDPOINT,
 		REDIS_URL,
 		S3_MODE: 'local',
-		VEHICLE_SERVICE_PROXY_URL: `${API_GATEWAY}/v1/vehicle-service/inventory/import`,
+		VEHICLE_SERVICE_PROXY_URL: `http://falcon.pi.local/v1/vehicle-service/inventory/import`,
 		VENDOR_SIM_URL,
 	},
 };
