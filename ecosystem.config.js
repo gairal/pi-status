@@ -34,7 +34,7 @@ const status = {
 
 const hippo = {
 	name: 'hippo',
-	script: `${WORKSPACE}/autofi/hippo/server/index.js`,
+	script: `${WORKSPACE}/autofi/hippo/dist/server/index.js`,
 	env: {
 		...ENV_COMMON,
 		PORT: PORTS.Hippo,
