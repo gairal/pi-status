@@ -87,4 +87,4 @@ const vendorSim = {
 	},
 };
 
-module.exports = { apps: [lioness, status, vendorSim] };
+module.exports = { apps: [hippo, lioness, status, vendorSim] };
