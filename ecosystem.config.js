@@ -100,6 +100,25 @@ const lioness = {
 	},
 };
 
+const smartcow = {
+	name: 'smartcow',
+	script: `${WORKSPACE}/autofi/smart_cow/bin/www`,
+	env: {
+		...ENV_COMMON,
+		baseUrl: LOANAPP_URL,
+		DEBUG: '*',
+		HIPPO_URL: VEHICLE_SERVICE_URL,
+		JWT_SECRET,
+		LOANAPP_MONGO_URL: MONGO_URL,
+		LOG_TO_CONSOLE: true,
+		PORT: PORTS.Smartcow,
+		RABBITMQ_URL: 'TODO',
+		REDIS_URL,
+		SMTP_MODE: 'DEVELOPMENT',
+		VENDOR_SIM_URL,
+	},
+}
+
 const vendorSim = {
 	name: 'vendor-sim',
 	script: `${WORKSPACE}/autofi/vendor-simulator/vendorsim.js`,
@@ -109,4 +128,4 @@ const vendorSim = {
 	},
 };
 
-module.exports = { apps: [falcon, hippo, lioness, status, vendorSim] };
+module.exports = { apps: [falcon, hippo, lioness, smartcow, status, vendorSim] };
