@@ -33,4 +33,6 @@ const process = p => {
 }
 
 const view = ({ processes }) => h('div', {}, processes.map(process))
-app({ init: { processes: window.PROCESSES }, node: document.getElementById('app'), view });
+window.socket.on('pm2', (processes) => {
+  app({ init: { processes }, node: document.getElementById('app'), view });
+});
