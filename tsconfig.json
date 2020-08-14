@@ -16,6 +16,6 @@
     "strict": true,
     "target": "es2019"
   },
-  "include": ["./src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "./jest.config.js", "__mocks__/", "test/"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "./jest.config.js", "__mocks__/", "test/", "src/static/"]
 }

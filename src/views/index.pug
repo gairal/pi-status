@@ -12,15 +12,10 @@ html(xmlns='http://www.w3.org/1999/xhtml', lang='en')
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-status-bar-style', content='black')
     link(href='https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css', rel='stylesheet')
+    script.
+      window.PROCESSES = !{JSON.stringify(pm2)};
+    script(type='module' src="./app.js")
   body.bg-black.text-gray-100
     main.flex.flex-col.p-16
       h1.text-center.text-6xl PI Status
-      each p in pm2
-        .w-full.rounded.overflow-hidden.py-4.px-6.mb-2(class='bg-'+p.color+'-500')
-          .flex.justify-between.items-center
-            h2.font-bold.text-xl.mb-2.text-gray-200 #{p.name}
-            span.font-bold(class='text-'+p.color+'-900') #{p.status}
-          span.inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mb-2 cpu: #{p.cpu}%
-          span.inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mb-2 mem: #{p.memory}MB
-          span.inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mb-2 uptime: #{p.uptime}
-          span.inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mb-2 restarts: #{p.restarts}
+      #app
