@@ -16,16 +16,16 @@ const PORTS = {
 const MONGO_URL = `mongodb://127.0.0.1:${PORTS.Mongo}/autofi`;
 const REDIS_URL = `redis://127.0.0.1:${PORTS.Redis}`;
 const JWT_SECRET = 'secret';
-const ANTEATER_URL = `http://localhost:${PORTS.Anteater}`;
-const API_GATEWAY = `http://localhost:${PORTS.Falcon}`;
-const COBRA_URL = `http://localhost:${PORTS.Cobra}`;
-const CREDIT_URL = `http://localhost:${PORTS.Credit}`;
-const LOANAPP_URL = `http://localhost:${PORTS.Loanapp}`;
-const LIONESS_URL = `http://localhost:${PORTS.Lioness}`;
-const VEHICLE_SERVICE_URL = `http://localhost:${PORTS.Hippo}`;
-const SCORPION_URL = `http://localhost:${PORTS.Scorpion}`;
-const SMARTCOW_ENDPOINT = `http://localhost:${PORTS.Smartcow}`;
-const VENDOR_SIM_URL = `http://localhost:${PORTS.VendorSim}`;
+const ANTEATER_URL = `http://127.0.0.1:${PORTS.Anteater}`;
+const API_GATEWAY = `http://127.0.0.1:${PORTS.Falcon}`;
+const COBRA_URL = `http://127.0.0.1:${PORTS.Cobra}`;
+const CREDIT_URL = `http://127.0.0.1:${PORTS.Credit}`;
+const LOANAPP_URL = `http://127.0.0.1:${PORTS.Loanapp}`;
+const LIONESS_URL = `http://127.0.0.1:${PORTS.Lioness}`;
+const VEHICLE_SERVICE_URL = `http://127.0.0.1:${PORTS.Hippo}`;
+const SCORPION_URL = `http://127.0.0.1:${PORTS.Scorpion}`;
+const SMARTCOW_ENDPOINT = `http://127.0.0.1:${PORTS.Smartcow}`;
+const VENDOR_SIM_URL = `http://127.0.0.1:${PORTS.VendorSim}`;
 
 const ENV_COMMON = {
 	NODE_ENV: 'development',
@@ -95,7 +95,7 @@ const lioness = {
 		SMARTCOW_ENDPOINT,
 		REDIS_URL,
 		S3_MODE: 'local',
-		VEHICLE_SERVICE_PROXY_URL: `http://falcon.pi.local/v1/vehicle-service/inventory/import`,
+		VEHICLE_SERVICE_PROXY_URL: `https://falcon.pi.local/v1/vehicle-service/inventory/import`,
 		VENDOR_SIM_URL,
 	},
 };
