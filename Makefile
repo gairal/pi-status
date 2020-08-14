@@ -16,6 +16,7 @@ build:
 	make install
 	npm run build
 	cp -r src/views dist/
+	cp -r src/static dist/
 
 .PHONY: deploy
 deploy:
