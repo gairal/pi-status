@@ -25,10 +25,10 @@ const process = p => {
     }
   }, [
     processHeader(p),
-    badge(cpu),
-    badge(memory),
-    badge(uptime),
-    badge(restarts),
+    badge(`cpu: ${cpu}%`),
+    badge(`mem: ${memory}MB`),
+    badge(`uptime: ${uptime}`),
+    badge(`restarts: ${restarts}`),
   ])
 }
 
