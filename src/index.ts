@@ -1,19 +1,10 @@
-// import { createServer } from 'http';
-// import { resolve } from 'path';
-
-// import * as Koa from 'koa';
-// import * as serve from 'koa-static';
-// import Pug from 'koa-pug';
-// import * as Socket from 'socket.io';
-
 import { server } from './app';
 
 import './config';
-import start from './controller';
+import startPM2 from './controllers/pm2';
+import startSystem from './controllers/system';
 
-const init = () => {
-  server.listen(process.env.PORT || 8080);
-  start();
-};
+server.listen(process.env.PORT || 8080);
 
-init();
+startPM2();
+startSystem();

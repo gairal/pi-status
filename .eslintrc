@@ -18,6 +18,18 @@
             "@typescript-eslint/no-explicit-any": 0,
             "class-methods-use-this": 0
         }
+    },
+    {
+        "files": ["src/public/**/*.js"],
+        "parser": "babel-eslint",
+        "rules": {
+            "@typescript-eslint/explicit-module-boundary-types": 0,
+            "@typescript-eslint/no-explicit-any": 0,
+            "import/extensions": 0,
+            "import/no-unresolved": 0
+
+        }
     }
   ]
 }
+
