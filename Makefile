@@ -13,14 +13,20 @@ test:
 
 .PHONY: build
 build:
-	make install
 	npm run build
 	cp -r src/public dist/
 
 .PHONY: deploy
 deploy:
+	make build
+	# scp ./package.json pi:~/workspace/pi-status/package.json
+	scp -r ./node_modules pi:~/workspace/pi-status/node_modules/
+	scp -r ./dist pi:~/workspace/pi-status/dist/
+
+.PHONY: release
+release:
 	make install
-	npm run deploy
+	make build
 
 .PHONY: start
 start:
