@@ -18,6 +18,7 @@ build:
 
 .PHONY: release
 release:
+	git pull
 	make install
 	make build
 
