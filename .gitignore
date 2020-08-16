@@ -6,5 +6,4 @@ firebase-debug.log
 # dirs
 coverage/
 dist/
-lib/
 node_modules/
