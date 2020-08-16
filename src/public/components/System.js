@@ -6,15 +6,19 @@ import H2 from './H2.js';
 
 const separator = h('div', { class: 'p-2' });
 
+const systemBlock = {
+  'border-2': true,
+  'border-solid': true,
+  'border-white': true,
+};
+
 const CPU = ({ cpus = [], currentLoad }) =>
   h(
     'div',
     {
       class: {
         ...block,
-        'border-2': true,
-        'border-solid': true,
-        'border-white': true,
+        ...systemBlock,
       },
     },
     [
@@ -29,16 +33,14 @@ const Memory = ({ memory = {} }) =>
     {
       class: {
         ...block,
-        'border-2': true,
-        'border-solid': true,
-        'border-white': true,
+        ...systemBlock,
       },
     },
     [
       H2('Memory'),
-      Badge(`Total: ${memory.total}`),
-      Badge(`Free: ${memory.free}`),
-      Badge(`Used: ${memory.used}`),
+      Badge(`Total: ${memory.total || ''}`),
+      Badge(`Free: ${memory.free || ''}`),
+      Badge(`Used: ${memory.used || ''}`),
     ]
   );
 
