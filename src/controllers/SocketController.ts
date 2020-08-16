@@ -32,17 +32,13 @@ export default class SocketController<T> {
       .finally(this.loop.bind(this));
   }
 
-  init(): Promise<void> {
-    return this.loop();
-  }
-
   static create<T>(
     getData: () => Promise<T>,
     event: string,
     interval?: number
   ): SocketController<T> {
     const controller = new this(getData, event, interval);
-    controller.init();
+    controller.loop();
     return controller;
   }
 }
