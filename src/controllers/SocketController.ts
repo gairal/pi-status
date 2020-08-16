@@ -14,22 +14,25 @@ export default class SocketController<T> {
     return new Promise((resolve) => setTimeout(resolve, this.interval));
   }
 
-  private emit(): Promise<Namespace> {
-    return this.getData()
-      .then((data) => io.emit(this.event, data))
-      .catch((err) => {
-        logger.log(err);
-        return io.emit('error', err);
-      });
+  private async emit(): Promise<Namespace> {
+    try {
+      const data = await this.getData();
+      return io.emit(this.event, data);
+    } catch (err) {
+      logger.log(err);
+      return io.emit('error', err.toString());
+    }
   }
 
-  private loop(): Promise<void> {
-    return this.emit()
-      .then(this.delay.bind(this))
-      .catch((err) => {
-        logger.error(err.toString());
-      })
-      .finally(this.loop.bind(this));
+  private async loop(): Promise<void> {
+    try {
+      await this.emit();
+      await this.delay();
+    } catch (err) {
+      logger.error(err.toString());
+    }
+
+    return this.loop();
   }
 
   static create<T>(
