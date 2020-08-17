@@ -4,6 +4,8 @@ import { config, logger } from '../config';
 import { io } from '../app';
 
 export default class SocketController<T> {
+  private run = true;
+
   constructor(
     private getData: () => Promise<T>,
     private event: string,
@@ -25,14 +27,24 @@ export default class SocketController<T> {
   }
 
   private async loop(): Promise<void> {
-    try {
-      await this.emit();
-      await this.delay();
-    } catch (err) {
-      logger.error(err.toString());
+    while (this.run) {
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        await this.emit();
+        // eslint-disable-next-line no-await-in-loop
+        await this.delay();
+      } catch (err) {
+        logger.error(err.toString());
+      }
     }
+  }
 
-    return this.loop();
+  public start(): void {
+    this.run = true;
+  }
+
+  public stop(): void {
+    this.run = false;
   }
 
   static create<T>(
