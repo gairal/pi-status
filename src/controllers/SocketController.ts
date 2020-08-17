@@ -41,6 +41,7 @@ export default class SocketController<T> {
 
   public start(): void {
     this.run = true;
+    this.loop();
   }
 
   public stop(): void {
@@ -53,7 +54,7 @@ export default class SocketController<T> {
     interval?: number
   ): SocketController<T> {
     const controller = new this(getData, event, interval);
-    controller.loop();
+    controller.start();
     return controller;
   }
 }
