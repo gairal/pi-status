@@ -1,17 +1,21 @@
+import { promisify } from 'util';
+
 import * as pm2 from 'pm2';
 import { formatISO9075 } from 'date-fns';
 
 import { logger } from '../config';
 import { round } from './utils';
 
-const connect = () =>
-  new Promise((resolve, reject) =>
-    pm2.connect((err) => (err ? reject(err) : resolve()))
-  );
-const list = (): Promise<pm2.ProcessDescription[]> =>
-  new Promise((resolve, reject) =>
-    pm2.list((err, data) => (err ? reject(err) : resolve(data)))
-  );
+const promized = {
+  connect: promisify(pm2.connect.bind(pm2)),
+  disconnect: promisify(pm2.disconnect.bind(pm2)),
+  list: promisify(pm2.list.bind(pm2)),
+  restart: promisify(pm2.restart.bind(pm2)),
+  stop: promisify(pm2.stop.bind(pm2)),
+};
+
+const exec = <T>(operation: () => Promise<T>) =>
+  promized.connect().then(operation).finally(promized.disconnect);
 
 enum ProcessStatus {
   Online = 'online',
@@ -34,9 +38,9 @@ export interface PM2Data {
   uptime?: string;
 }
 
-const get = async (): Promise<PM2Data[]> => {
+export const list = async (): Promise<PM2Data[]> => {
   try {
-    const data = await connect().then(list);
+    const data = await exec(promized.list);
 
     /* eslint-disable camelcase */
     const result = data.map(({ monit, name, pid, pm_id, pm2_env }) => {
@@ -73,4 +77,20 @@ const get = async (): Promise<PM2Data[]> => {
   return [];
 };
 
-export default get;
+export const restart = async (name: string): Promise<pm2.Proc | null> => {
+  if (!name) {
+    logger.error(`restart: missing name`);
+    return null;
+  }
+
+  return exec(() => promized.restart(name));
+};
+
+export const stop = async (name: string): Promise<pm2.Proc | null> => {
+  if (!name) {
+    logger.error(`stop: missing name`);
+    return null;
+  }
+
+  return exec(() => promized.stop(name));
+};
