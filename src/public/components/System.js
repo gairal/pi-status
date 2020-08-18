@@ -45,6 +45,8 @@ const Memory = ({ memory = {} }) =>
   );
 
 export default (system = {}) =>
-  h('div', { class: line }, [
-    h('div', { class: 'flex' }, [CPU(system), separator, Memory(system)]),
-  ]);
+  h(
+    'div',
+    { class: { ...line, 'bg-black': true, sticky: true, 'top-0': true } },
+    [h('div', { class: 'flex' }, [CPU(system), separator, Memory(system)])]
+  );

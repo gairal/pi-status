@@ -4,4 +4,7 @@ import Process from './Process.js';
 import System from './System.js';
 
 export default ({ processes = [], system }) =>
-  h('div', {}, [System(system), ...processes.map(Process)]);
+  h('main', { class: 'flex flex-col p-8' }, [
+    System(system),
+    ...processes.map(Process),
+  ]);
