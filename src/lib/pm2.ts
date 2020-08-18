@@ -2,6 +2,7 @@ import * as pm2 from 'pm2';
 import { formatISO9075 } from 'date-fns';
 
 import { logger } from '../config';
+import { round } from './utils';
 
 const connect = () =>
   new Promise((resolve, reject) =>
@@ -54,7 +55,7 @@ const get = async (): Promise<PM2Data[]> => {
         cpu,
         id: pm_id,
         instances,
-        memory: memory ? Math.round(memory / 1024 / 1024) : 0,
+        memory: memory ? round(memory / 1024 / 1024) : 0,
         name,
         pid,
         restarts: unstable_restarts,

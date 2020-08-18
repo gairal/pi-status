@@ -1,6 +1,7 @@
 import { currentLoad, mem } from 'systeminformation';
 
 import { logger } from '../config';
+import { round } from './utils';
 
 export interface System {
   currentLoad: string;
@@ -14,14 +15,14 @@ export interface System {
 
 const bytesToStr = (data: number) => {
   if (data < 1000000) {
-    return `${Math.round(data / 1024)}KB`;
+    return `${round(data / 1024)}KB`;
   }
 
   if (data < 1000000000) {
-    return `${Math.round(data / 1024 ** 2)}MB`;
+    return `${round(data / 1024 ** 2)}MB`;
   }
 
-  return `${Math.round(data / 1024 ** 3)}GB`;
+  return `${round(data / 1024 ** 3)}GB`;
 };
 
 export default async (): Promise<System | null> => {
