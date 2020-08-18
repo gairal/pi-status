@@ -4,8 +4,8 @@ import { logger } from '../config';
 import { round } from './utils';
 
 export interface System {
-  currentLoad: string;
-  cpus: { load: string }[];
+  currentLoad: number;
+  cpus: { load: number }[];
   memory: {
     free: string;
     total: string;
@@ -33,8 +33,8 @@ export default async (): Promise<System | null> => {
     ]);
 
     const system: System = {
-      cpus: cpus.map(({ load }) => ({ load: `${Math.round(load)}%` })),
-      currentLoad: `${Math.round(currentload)}%`,
+      cpus: cpus.map(({ load }) => ({ load: Math.round(load) })),
+      currentLoad: Math.round(currentload),
       memory: {
         free: bytesToStr(free),
         total: bytesToStr(total),

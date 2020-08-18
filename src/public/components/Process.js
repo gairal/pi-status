@@ -4,7 +4,7 @@ import Badge from './Badge.js';
 import { block, line } from './utils.js';
 import H2 from './H2.js';
 import Button from './Button.js';
-import Separator from './Separator.js';
+import Progress from './Progress.js';
 
 const act = (name, action) => (state) => {
   fetch(`/processes/${name}/${action}`, { method: 'POST' });
@@ -30,14 +30,10 @@ export default (props) => {
     },
     [
       H2(name, { 'mr-2': true }),
-      Separator(0, { classes: { 'flex-1': true } }),
-      Badge(`${cpu}%`, {
-        icon: 'microchip',
-        classes: { 'mr-2': true, 'w-1/4': true },
-      }),
+      Progress(cpu, { 'flex-1': true }),
       Badge(`${memory}MB`, {
         icon: 'database',
-        classes: { 'mr-2': true, 'w-1/4': true },
+        classes: { 'mr-2': true },
       }),
       Button(status, {
         color: isOnline ? 'red' : 'green',
