@@ -21,6 +21,7 @@ release:
 	git pull
 	make install
 	make build
+	pm2 restart status
 
 .PHONY: start
 start:
