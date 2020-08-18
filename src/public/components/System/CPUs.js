@@ -14,7 +14,7 @@ export default ({ cpus = [], currentLoad }) =>
       },
     },
     [
-      H2(`CPU Load: ${currentLoad || ''}`),
+      H2(`CPU Load: ${currentLoad || ''}%`),
       h(
         'div',
         { class: { flex: true, 'flex-wrap': true } },
