@@ -11,19 +11,26 @@ export default (percentage, classes = {}) =>
     },
     [
       h(
-        'span',
+        'div',
         {
-          class: {
-            flex: true,
-            'items-center': true,
-            'h-full': true,
-            'px-2': true,
-            'bg-gray-700': true,
-            'text-xs': true,
-          },
+          class: { 'h-full': true, 'bg-gray-700': true },
           style: { width: `${percentage}%` },
         },
-        text(`${percentage}%`)
+        [
+          h(
+            'span',
+            {
+              class: {
+                flex: true,
+                'items-center': true,
+                'h-full': true,
+                'px-2': true,
+                'text-xs': true,
+              },
+            },
+            text(`${percentage}%`)
+          ),
+        ]
       ),
     ]
   );
