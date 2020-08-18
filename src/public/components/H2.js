@@ -1,4 +1,15 @@
 import { h, text } from 'https://unpkg.com/hyperapp';
 
-export default (str) =>
-  h('h2', { class: 'font-bold text-xl mb-2 text-gray-200' }, text(str));
+export default (str, classes = {}) =>
+  h(
+    'h2',
+    {
+      class: {
+        'font-bold': true,
+        'text-xl': true,
+        'text-gray-200': true,
+        ...classes,
+      },
+    },
+    text(str)
+  );

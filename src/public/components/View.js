@@ -1,7 +1,7 @@
 import { h } from 'https://unpkg.com/hyperapp';
 
 import Process from './Process.js';
-import System from './System.js';
+import System from './System/index.js';
 
 export default ({ processes = [], system }) =>
   h('main', { class: 'flex flex-col p-8' }, [
