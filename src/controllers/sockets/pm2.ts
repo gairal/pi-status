@@ -1,4 +1,4 @@
-import getPM2, { PM2Data } from '../lib/pm2';
+import getPM2, { PM2Data } from '../../lib/pm2';
 import SocketController from './SocketController';
 
 export default (): SocketController<PM2Data[]> =>
