@@ -25,7 +25,7 @@ export default (props) => {
         ...line,
         flex: true,
         'items-center': true,
-        [`bg-${color}-500`]: true,
+        [`bg-${color}-700`]: true,
       },
     },
     [
