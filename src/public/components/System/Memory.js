@@ -14,6 +14,7 @@ export default ({ memory = {} }) =>
       class: {
         ...block,
         ...systemBlock,
+        'py-1': true,
       },
     },
     [

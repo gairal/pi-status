@@ -11,6 +11,7 @@ export default ({ cpus = [], currentLoad }) =>
       class: {
         ...block,
         ...systemBlock,
+        'py-1': true,
       },
     },
     [
@@ -19,7 +20,12 @@ export default ({ cpus = [], currentLoad }) =>
         'div',
         { class: { flex: true, 'flex-wrap': true } },
         cpus.map(({ load }) =>
-          Progress(load, { 'mr-2': true, 'my-1': true, 'w-2/12': true })
+          Progress(load, {
+            'mr-2': true,
+            'my-1': true,
+            'w-2/12': true,
+            'h-8': true,
+          })
         )
       ),
     ]

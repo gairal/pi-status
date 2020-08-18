@@ -14,8 +14,10 @@ export default (percentage, classes = {}) =>
         'span',
         {
           class: {
-            block: true,
-            'p-2': true,
+            flex: true,
+            'items-center': true,
+            'h-full': true,
+            'px-2': true,
             'bg-gray-700': true,
             'text-xs': true,
           },

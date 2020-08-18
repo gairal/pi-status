@@ -7,7 +7,6 @@ export const line = {
 export const block = {
   'w-full': true,
   rounded: true,
-  'py-1': true,
   'px-2': true,
 };
 

@@ -24,13 +24,14 @@ export default (props) => {
         ...block,
         ...line,
         flex: true,
+        'h-12': true,
         'items-center': true,
         [`bg-${color}-700`]: true,
       },
     },
     [
       H2(name, { 'mr-2': true, 'w-32': true }),
-      Progress(cpu, { 'flex-1': true }),
+      Progress(cpu, { 'flex-1': true, 'h-full': true }),
       Badge(`${memory}MB`, {
         icon: 'database',
         classes: { 'mr-2': true, 'w-32': true },
