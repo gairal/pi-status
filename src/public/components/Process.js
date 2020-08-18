@@ -30,15 +30,15 @@ export default (props) => {
     },
     [
       H2(name, { 'mr-2': true }),
+      Separator(0, { classes: { 'flex-1': true } }),
       Badge(`${cpu}%`, {
         icon: 'microchip',
-        classes: { 'mr-2': true },
+        classes: { 'mr-2': true, 'w-1/4': true },
       }),
       Badge(`${memory}MB`, {
         icon: 'database',
-        classes: { 'mr-2': true },
+        classes: { 'mr-2': true, 'w-1/4': true },
       }),
-      Separator(0, { classes: { 'flex-1': true } }),
       Button(status, {
         color: isOnline ? 'red' : 'green',
         onclick: act(name, action),

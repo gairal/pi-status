@@ -8,13 +8,12 @@ export default (str, { icon, classes = {} } = {}) =>
     {
       class: {
         'inline-block': true,
-        'bg-gray-200': true,
         'rounded-md': true,
         'px-3': true,
         'py-1': true,
         'text-sm': true,
         'font-semibold': true,
-        'text-gray-700': true,
+        'text-white': true,
         ...classes,
       },
     },
