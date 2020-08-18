@@ -1,7 +1,7 @@
 import { Namespace } from 'socket.io';
 
-import { logger } from '../../config';
-import { io } from '../../app';
+import { logger } from '../config';
+import { io } from '../app';
 
 export default class SocketController<T> {
   constructor(private getData: () => Promise<T>, private event: string) {}

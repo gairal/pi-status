@@ -1,5 +1,5 @@
-import { logger, config } from '../../config';
-import { io } from '../../app';
+import { logger, config } from '../config';
+import { io } from '../app';
 import pm2 from './pm2';
 import system from './system';
 import SocketController from './SocketController';

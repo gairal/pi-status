@@ -1,9 +1,9 @@
-import * as Router from '@koa/router';
+// import * as Router from '@koa/router';
 
-import actions from './processes';
+// import actions from './processes';
 
-const router = new Router();
+// const router = new Router();
 
-router.post('/processes/:name/:action', actions);
+// router.post('/processes/:name/:action', actions);
 
-export default router;
+// export default router;
