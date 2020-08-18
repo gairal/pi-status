@@ -29,11 +29,11 @@ export default (props) => {
       },
     },
     [
-      H2(name, { 'mr-2': true }),
+      H2(name, { 'mr-2': true, 'w-32': true }),
       Progress(cpu, { 'flex-1': true }),
       Badge(`${memory}MB`, {
         icon: 'database',
-        classes: { 'mr-2': true },
+        classes: { 'mr-2': true, 'w-32': true },
       }),
       Button(status, {
         color: isOnline ? 'red' : 'green',
