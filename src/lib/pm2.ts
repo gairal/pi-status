@@ -11,6 +11,7 @@ const promized = {
   disconnect: promisify(pm2.disconnect.bind(pm2)),
   list: promisify(pm2.list.bind(pm2)),
   restart: promisify(pm2.restart.bind(pm2)),
+  start: promisify(pm2.start.bind(pm2)),
   stop: promisify(pm2.stop.bind(pm2)),
 };
 

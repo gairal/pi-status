@@ -44,7 +44,7 @@ const Memory = ({ memory = {} }) =>
     ]
   );
 
-export default (system) =>
+export default (system = {}) =>
   h('div', { class: line }, [
     h('div', { class: 'flex' }, [CPU(system), separator, Memory(system)]),
   ]);

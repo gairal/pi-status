@@ -1,12 +1,18 @@
-import { h, text } from 'https://unpkg.com/hyperapp';
+import { h } from 'https://unpkg.com/hyperapp';
 import H2 from './H2.js';
+import Button from './Button.js';
 
-export default ({ color, name, status }) =>
-  h('div', { class: 'flex justify-between items-center' }, [
+const act = (name, action) => () =>
+  fetch(`/processes/${name}/${action}`, { method: 'POST' });
+
+export default ({ name, status }) => {
+  const action = status === 'online' ? 'stop' : 'restart';
+
+  return h('div', { class: 'flex justify-between items-start' }, [
     H2(name),
-    h(
-      'span',
-      { class: { 'font-bold': true, [`text-${color}-900`]: true } },
-      text(status)
-    ),
+    Button(status, {
+      color: status === 'online' ? 'red' : 'green',
+      onclick: act(name, action),
+    }),
   ]);
+};
