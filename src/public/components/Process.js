@@ -11,11 +11,21 @@ const act = (name, action) => (state) => {
   return state;
 };
 
+const classes = { 'mr-2': true, 'w-32': true };
+
 export default (props) => {
   const { color, cpu, memory, name, status } = props;
 
   const isOnline = status === 'online';
-  const action = isOnline ? 'stop' : 'restart';
+  const title = isOnline ? 'stop' : 'restart';
+  const onclick = act(name, title);
+
+  const h2 = H2(name, classes);
+  const button = Button(status, {
+    color: isOnline ? 'red' : 'green',
+    onclick,
+    title,
+  });
 
   return h(
     'div',
@@ -29,18 +39,13 @@ export default (props) => {
         [`bg-${color}-700`]: true,
       },
     },
-    [
-      H2(name, { 'mr-2': true, 'w-32': true }),
-      Progress(cpu, { 'flex-1': true, 'h-full': true }),
-      Badge(`${memory}MB`, {
-        icon: 'database',
-        classes: { 'mr-2': true, 'w-32': true },
-      }),
-      Button(status, {
-        color: isOnline ? 'red' : 'green',
-        onclick: act(name, action),
-        title: action,
-      }),
-    ]
+    isOnline
+      ? [
+          h2,
+          Progress(cpu, { 'flex-1': true, 'h-full': true }),
+          Badge(`${memory}MB`, { icon: 'database', classes }),
+          button,
+        ]
+      : [h2, button]
   );
 };
