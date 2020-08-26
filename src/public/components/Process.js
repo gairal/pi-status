@@ -46,6 +46,6 @@ export default (props) => {
           Badge(`${memory}MB`, { icon: 'database', classes }),
           button,
         ]
-      : [h2, button]
+      : [h2, h('div', { class: 'flex-1' }), button]
   );
 };
