@@ -4,16 +4,16 @@ VERSION := $(shell git describe --abbrev=0 --tags)
 
 .PHONY: install
 install:
-	npm i
+	pnpm i
 
 .PHONY: test
 test:
-	npm run lint
-	npm run test
+	pnpm lint
+	pnpm test
 
 .PHONY: build
 build:
-	npm run build
+	pnpm build
 	cp -r src/public dist/
 
 .PHONY: release
@@ -25,5 +25,5 @@ release:
 
 .PHONY: start
 start:
-	npm run start
+	pnpm start
 

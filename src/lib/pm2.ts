@@ -1,10 +1,10 @@
-import { promisify } from 'util';
+import { promisify } from "util";
 
-import * as pm2 from 'pm2';
-import { formatISO9075 } from 'date-fns';
+import * as pm2 from "pm2";
+import { formatISO9075 } from "date-fns";
 
-import { logger } from '../config';
-import { round } from './utils';
+import { logger } from "../config";
+import { round } from "./utils";
 
 const promized = {
   connect: promisify(pm2.connect.bind(pm2)),
@@ -19,18 +19,18 @@ const exec = <T>(operation: () => Promise<T>) =>
   promized.connect().then(operation).finally(promized.disconnect);
 
 enum ProcessStatus {
-  Online = 'online',
-  Stopping = 'stopping',
-  Stopped = 'stopped',
-  Launching = 'launching',
-  Errored = 'errored',
-  OneLaunchStatus = 'one-launch-status',
+  Errored = "errored",
+  Launching = "launching",
+  OneLaunchStatus = "one-launch-status",
+  Online = "online",
+  Stopped = "stopped",
+  Stopping = "stopping",
 }
 
 export interface PM2Data {
   cpu?: number;
   id?: number;
-  instances?: number | 'max';
+  instances?: number | "max";
   memory?: number;
   name?: string;
   pid?: number;
@@ -39,21 +39,27 @@ export interface PM2Data {
   uptime?: string;
 }
 
-export const list = async (): Promise<PM2Data[]> => {
+export const list = async () => {
   try {
     const data = await exec(promized.list);
 
     /* eslint-disable camelcase */
     const result = data.map(({ monit, name, pid, pm_id, pm2_env }) => {
       const { cpu, memory } = monit || {};
-      const { instances, pm_uptime, status = '', unstable_restarts } =
-        pm2_env || {};
+      const {
+        instances,
+        pm_uptime,
+        status = "",
+        unstable_restarts,
+      } = pm2_env || {};
 
       const color =
-        ({
-          [ProcessStatus.Online]: 'green',
-          [ProcessStatus.Errored]: 'red',
-        } as Record<ProcessStatus, string>)[status as ProcessStatus] || 'blue';
+        (
+          {
+            [ProcessStatus.Online]: "green",
+            [ProcessStatus.Errored]: "red",
+          } as Record<ProcessStatus, string>
+        )[status as ProcessStatus] || "blue";
 
       return {
         color,
@@ -65,20 +71,20 @@ export const list = async (): Promise<PM2Data[]> => {
         pid,
         restarts: unstable_restarts,
         status: status as ProcessStatus,
-        uptime: pm_uptime ? formatISO9075(new Date(pm_uptime)) : '',
+        uptime: pm_uptime ? formatISO9075(new Date(pm_uptime)) : "",
       };
     });
     /* eslint-enable camelcase */
 
     return result;
   } catch (err) {
-    logger.error(err.toString());
+    logger.error(err?.toString());
   }
 
   return [];
 };
 
-export const restart = async (name: string): Promise<pm2.Proc | null> => {
+export const restart = async (name: string) => {
   if (!name) {
     logger.error(`restart: missing name`);
     return null;
@@ -87,7 +93,7 @@ export const restart = async (name: string): Promise<pm2.Proc | null> => {
   return exec(() => promized.restart(name));
 };
 
-export const stop = async (name: string): Promise<pm2.Proc | null> => {
+export const stop = async (name: string) => {
   if (!name) {
     logger.error(`stop: missing name`);
     return null;

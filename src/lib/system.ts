@@ -1,11 +1,11 @@
-import { currentLoad, mem } from 'systeminformation';
+import { currentLoad, mem } from "systeminformation";
 
-import { logger } from '../config';
-import { round } from './utils';
+import { logger } from "../config";
+import { round } from "./utils";
 
 export interface System {
-  currentLoad: number;
   cpus: { load: number }[];
+  currentLoad: number;
   memory: {
     free: string;
     total: string;
@@ -25,12 +25,10 @@ const bytesToStr = (data: number) => {
   return `${round(data / 1024 ** 3)}GB`;
 };
 
-export default async (): Promise<System | null> => {
+export const getSystem = async () => {
   try {
-    const [{ cpus, currentload }, { free, total, used }] = await Promise.all([
-      currentLoad(),
-      mem(),
-    ]);
+    const [{ cpus, currentLoad: currentload }, { free, total, used }] =
+      await Promise.all([currentLoad(), mem()]);
 
     const system: System = {
       cpus: cpus.map(({ load }) => ({ load: Math.round(load) })),
@@ -44,7 +42,7 @@ export default async (): Promise<System | null> => {
 
     return system;
   } catch (err) {
-    logger.error(err.toString());
+    logger.error(err?.toString());
   }
 
   return null;
