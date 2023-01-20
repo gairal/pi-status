@@ -1,26 +1,25 @@
-import { Context } from 'koa';
+import { Middleware } from "@koa/router";
+import { DefaultState } from "koa";
 
-import { restart, stop } from '../lib/pm2';
+import { restart, stop } from "../lib/pm2";
 
-enum Action {
-  Stop = 'stop',
-  Restart = 'restart',
-}
-
-export default async (ctx: Context): Promise<void> => {
+export const actions: Middleware<
+  DefaultState,
+  { params: { action?: "restart" | "stop"; name?: string } }
+> = async (ctx) => {
   const { action, name } = ctx.params;
 
   if (!action || !name) {
     ctx.status = 401;
-    ctx.body = { error: 'missing param' };
+    ctx.body = { error: "missing param" };
     return;
   }
 
   switch (action) {
-    case Action.Restart:
+    case "restart":
       await restart(name);
       break;
-    case Action.Stop:
+    case "stop":
       await stop(name);
       break;
     default:

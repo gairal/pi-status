@@ -1,8 +1,7 @@
-import { app, server } from './app';
-
-import './config';
-import startSockets from './sockets';
-import router from './controllers';
+import { app, server } from "./app";
+import "./config";
+import { startSockets } from "./sockets";
+import { router } from "./controllers";
 
 app.use(router.routes());
 startSockets();
