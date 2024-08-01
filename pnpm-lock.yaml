@@ -30,8 +30,8 @@ importers:
         specifier: ^4.7.0
         version: 4.7.5
       systeminformation:
-        specifier: ^5.22.0
-        version: 5.22.10
+        specifier: ^5.23.2
+        version: 5.23.2
       winston:
         specifier: ^3.13.0
         version: 3.13.0
@@ -3164,8 +3164,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  systeminformation@5.22.10:
-    resolution: {integrity: sha512-RJ3oed80NkqgHtpB0TLkxEKEpQ3pUm2lgVolkHeoaExPidkWsj2D/hO6Rwwi9i+Odl1vm8TMiRNIKK7hBaqDsw==}
+  systeminformation@5.23.2:
+    resolution: {integrity: sha512-FoipTSwzZR68ZAjXZ8DRH2DFEErMAOi9JvRMsn6i/hTp6Hd4W4nM1W6a+kUyMrp/pd1SIuUzUZvvkQ21yE6Dig==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -6912,7 +6912,7 @@ snapshots:
       async: 3.2.5
       debug: 4.3.5(supports-color@5.5.0)
       pidusage: 2.0.21
-      systeminformation: 5.22.10
+      systeminformation: 5.23.2
       tx2: 1.0.5
     transitivePeerDependencies:
       - supports-color
@@ -7361,7 +7361,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  systeminformation@5.22.10: {}
+  systeminformation@5.23.2: {}
 
   tapable@2.2.1: {}
 
