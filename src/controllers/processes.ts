@@ -9,7 +9,7 @@ export const actions: Middleware<
 > = async (ctx) => {
   const { action, name } = ctx.params;
 
-  if (!action || !name) {
+  if (!(action && name)) {
     ctx.status = 401;
     ctx.body = { error: "missing param" };
     return;

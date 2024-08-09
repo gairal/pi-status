@@ -1,6 +1,8 @@
-import { createServer } from "http";
+import { createServer } from "node:http";
 
+// biome-ignore lint/style/noNamespaceImport: exception
 import * as Koa from "koa";
+// biome-ignore lint/style/noNamespaceImport: exception
 import * as serve from "koa-static";
 import { Server } from "socket.io";
 
