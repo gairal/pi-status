@@ -1,5 +1,4 @@
-// biome-ignore lint/style/noNamespaceImport: exception
-import * as Router from "@koa/router";
+import Router from "@koa/router";
 
 import { actions } from "./processes";
 
