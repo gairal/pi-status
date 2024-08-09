@@ -17,11 +17,16 @@ import { system } from "./system";
 
 class Loop {
   private isRunning = false;
+  private sockets: SocketController<unknown>[];
+  private interval: number;
 
   constructor(
-    private sockets: SocketController<unknown>[],
-    private interval = config.pollInterval,
-  ) {}
+    sockets: SocketController<unknown>[],
+    interval = config.pollInterval,
+  ) {
+    this.sockets = sockets;
+    this.interval = interval;
+  }
 
   private delay() {
     return new Promise((resolve) => {
