@@ -4,16 +4,16 @@ VERSION := $(shell git describe --abbrev=0 --tags)
 
 .PHONY: install
 install:
-	pnpm i
+	bun i
 
 .PHONY: test
 test:
-	pnpm lint
-	pnpm test
+	bun lint
+	bun run test
 
 .PHONY: build
 build:
-	pnpm build
+	bun run build
 	cp -r src/public dist/
 
 .PHONY: release
@@ -25,5 +25,5 @@ release:
 
 .PHONY: start
 start:
-	pnpm start
+	bun start
 

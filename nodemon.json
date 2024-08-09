@@ -1,8 +1,0 @@
-{
-  "verbose": true,
-  "debug": false,
-  "ignore": ["*.test.ts", ".git", "node_modules", "dist"],
-  "watch": ["src"],
-  "exec": "pnpm dev",
-  "ext": "ts"
-}
