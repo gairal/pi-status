@@ -1,6 +1,6 @@
 import { h, text } from "https://unpkg.com/hyperapp";
 
-export default (str, classes = {}) =>
+export const H2 = (str, classes = {}) =>
   h(
     "h2",
     {

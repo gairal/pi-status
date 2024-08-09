@@ -27,7 +27,7 @@
   },
   "overrides": [
     {
-      "include": ["lint-staged.config.js"],
+      "include": ["lint-staged.config.js", "public"],
       "linter": {
         "rules": { "style": { "useFilenamingConvention": "off" } }
       }

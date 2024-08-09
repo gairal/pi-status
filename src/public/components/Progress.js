@@ -1,6 +1,6 @@
 import { h, text } from "https://unpkg.com/hyperapp";
 
-export default (percentage, classes = {}) =>
+export const Progress = (percentage, classes = {}) =>
   h(
     "div",
     {

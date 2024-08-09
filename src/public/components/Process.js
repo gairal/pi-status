@@ -1,9 +1,9 @@
 import { h } from "https://unpkg.com/hyperapp";
 
-import Badge from "./Badge.js";
-import Button from "./Button.js";
-import H2 from "./H2.js";
-import Progress from "./Progress.js";
+import { Badge } from "./Badge.js";
+import { Button } from "./Button.js";
+import { H2 } from "./H2.js";
+import { Progress } from "./Progress.js";
 import { block, line } from "./utils.js";
 
 const act = (name, action) => (state) => {
@@ -13,7 +13,7 @@ const act = (name, action) => (state) => {
 
 const classes = { "mr-2": true, "w-32": true };
 
-export default (props) => {
+export const Process = (props) => {
   const { color, cpu, memory, name, status } = props;
 
   const isOnline = status === "online";

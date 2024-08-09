@@ -2,7 +2,7 @@ import { h, text } from "https://unpkg.com/hyperapp";
 import Icon from "./Icon.js";
 import Separator from "./Separator.js";
 
-export default (str, { icon, classes = {} } = {}) =>
+export const Badge = (str, { icon, classes = {} } = {}) =>
   h(
     "div",
     {

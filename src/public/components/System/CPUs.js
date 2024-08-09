@@ -1,10 +1,10 @@
 import { h } from "https://unpkg.com/hyperapp";
 
-import H2 from "../H2.js";
-import Progress from "../Progress.js";
+import { H2 } from "../H2.js";
+import { Progress } from "../Progress.js";
 import { block, systemBlock } from "../utils.js";
 
-export default ({ cpus = [], currentLoad }) =>
+export const Cpus = ({ cpus = [], currentLoad }) =>
   h(
     "div",
     {

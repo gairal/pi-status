@@ -1,6 +1,6 @@
 import { app } from "https://unpkg.com/hyperapp";
 
-import View from "./components/View.js";
+import { View } from "./components/View.js";
 
 const init = [
   // state init

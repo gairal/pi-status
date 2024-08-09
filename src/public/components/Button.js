@@ -1,6 +1,6 @@
 import { h, text } from "https://unpkg.com/hyperapp";
 
-export default (str, { color = "blue", onclick, title = "" }) =>
+export const Button = (str, { color = "blue", onclick, title = "" }) =>
   h(
     "button",
     {

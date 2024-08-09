@@ -7,7 +7,7 @@ import { block, systemBlock } from "../utils.js";
 const MemoryBadge = (str) =>
   Badge(str, { classes: { "mb-2": true, "mr-2": true }, icon: "database" });
 
-export default ({ memory = {} }) =>
+export const Memory = ({ memory = {} }) =>
   h(
     "div",
     {
