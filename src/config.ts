@@ -5,7 +5,6 @@ export const config = {
   pollInterval: 2000,
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const logger = createLogger({
   level: process.env.LOG_LEVEL || "info",
   transports: [new transports.Console({ format: format.simple() })],

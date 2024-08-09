@@ -1,7 +1,7 @@
-import { logger, config } from "../config";
+import { config, logger } from "../config";
+import type { SocketController } from "./SocketController";
 import { pm2 } from "./pm2";
 import { system } from "./system";
-import { SocketController } from "./SocketController";
 
 // const getClients = () =>
 //   new Promise((resolve) => {
@@ -20,7 +20,7 @@ class Loop {
 
   constructor(
     private sockets: SocketController<unknown>[],
-    private interval = config.pollInterval
+    private interval = config.pollInterval,
   ) {}
 
   private delay() {
@@ -40,9 +40,7 @@ class Loop {
   private async loop() {
     while (this.isRunning) {
       try {
-        // eslint-disable-next-line no-await-in-loop
         await this.emit();
-        // eslint-disable-next-line no-await-in-loop
         await this.delay();
       } catch (err) {
         logger.error(err?.toString());
@@ -72,6 +70,7 @@ class Loop {
   }
 
   static create(sockets: SocketController<unknown>[], interval?: number) {
+    // biome-ignore lint/complexity/noThisInStatic: exception
     const loop = new this(sockets, interval);
     loop.start();
     return loop;

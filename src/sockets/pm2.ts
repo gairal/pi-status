@@ -1,4 +1,4 @@
-import { list, PM2Data } from "../lib/pm2";
+import { type Pm2Data, list } from "../lib/pm2";
 import { SocketController } from "./SocketController";
 
-export const pm2 = () => SocketController.create<PM2Data[]>(list, "pm2");
+export const pm2 = () => SocketController.create<Pm2Data[]>(list, "pm2");
