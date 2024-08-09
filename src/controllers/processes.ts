@@ -1,5 +1,5 @@
-import { Middleware } from "@koa/router";
-import { DefaultState } from "koa";
+import type { Middleware } from "@koa/router";
+import type { DefaultState } from "koa";
 
 import { restart, stop } from "../lib/pm2";
 
@@ -9,7 +9,7 @@ export const actions: Middleware<
 > = async (ctx) => {
   const { action, name } = ctx.params;
 
-  if (!action || !name) {
+  if (!(action && name)) {
     ctx.status = 401;
     ctx.body = { error: "missing param" };
     return;

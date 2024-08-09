@@ -1,4 +1,4 @@
-import { h } from 'https://unpkg.com/hyperapp';
+import { h } from "https://unpkg.com/hyperapp";
 
-export default (padding = 1, { classes = {} } = {}) =>
-  h('div', { class: { [`p-${padding}`]: true, ...classes } });
+export const Separator = (padding = 1, { classes = {} } = {}) =>
+  h("div", { class: { [`p-${padding}`]: true, ...classes } });

@@ -1,10 +1,7 @@
 {
+  "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es2019"],
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
@@ -12,10 +9,8 @@
     },
     "outDir": "./dist",
     "resolveJsonModule": true,
-    "sourceMap": false,
-    "strict": true,
-    "target": "es2019"
+    "sourceMap": false
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "./jest.config.js", "__mocks__/", "test/", "src/public/"]
+  "exclude": ["node_modules", "dist", "src/public/"]
 }

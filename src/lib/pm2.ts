@@ -1,7 +1,8 @@
-import { promisify } from "util";
+import { promisify } from "node:util";
 
-import * as pm2 from "pm2";
 import { formatISO9075 } from "date-fns";
+// biome-ignore lint/style/noNamespaceImport: exception
+import * as pm2 from "pm2";
 
 import { logger } from "../config";
 import { round } from "./utils";
@@ -27,7 +28,7 @@ enum ProcessStatus {
   Stopping = "stopping",
 }
 
-export interface PM2Data {
+export interface Pm2Data {
   cpu?: number;
   id?: number;
   instances?: number | "max";
@@ -43,7 +44,6 @@ export const list = async () => {
   try {
     const data = await exec(promized.list);
 
-    /* eslint-disable camelcase */
     const result = data.map(({ monit, name, pid, pm_id, pm2_env }) => {
       const { cpu, memory } = monit || {};
       const {
@@ -74,7 +74,6 @@ export const list = async () => {
         uptime: pm_uptime ? formatISO9075(new Date(pm_uptime)) : "",
       };
     });
-    /* eslint-enable camelcase */
 
     return result;
   } catch (err) {
@@ -86,7 +85,7 @@ export const list = async () => {
 
 export const restart = async (name: string) => {
   if (!name) {
-    logger.error(`restart: missing name`);
+    logger.error("restart: missing name");
     return null;
   }
 
@@ -95,7 +94,7 @@ export const restart = async (name: string) => {
 
 export const stop = async (name: string) => {
   if (!name) {
-    logger.error(`stop: missing name`);
+    logger.error("stop: missing name");
     return null;
   }
 

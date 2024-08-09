@@ -1,4 +1,4 @@
-import { System, getSystem } from "../lib/system";
+import { type System, getSystem } from "../lib/system";
 import { SocketController } from "./SocketController";
 
 export const system = () =>

@@ -1,7 +1,7 @@
-import { createServer } from "http";
+import { createServer } from "node:http";
 
-import * as Koa from "koa";
-import * as serve from "koa-static";
+import Koa from "koa";
+import serve from "koa-static";
 import { Server } from "socket.io";
 
 export const app = new Koa();

@@ -18,4 +18,4 @@ jobs:
           bun-version: latest
       - run: bun i --frozen-lockfile
       - run: bun run build
-      - run: bun lint
+      - run: bun biome ci

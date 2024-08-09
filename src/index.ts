@@ -1,7 +1,7 @@
 import { app, server } from "./app";
 import "./config";
-import { startSockets } from "./sockets";
 import { router } from "./controllers";
+import { startSockets } from "./sockets";
 
 app.use(router.routes());
 startSockets();
