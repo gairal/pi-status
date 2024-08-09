@@ -20,9 +20,19 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/naming-convention": [
       "error",
-      { "selector": "default", "format": [], "trailingUnderscore": "forbid" },
-      { "selector": "enumMember", "format": ["PascalCase"] },
-      { "selector": "typeLike", "format": ["PascalCase"] }
+      {
+        "selector": "default",
+        "format": [],
+        "trailingUnderscore": "forbid"
+      },
+      {
+        "selector": "enumMember",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      }
     ],
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-explicit-any": "error",
@@ -33,16 +43,27 @@
     "import/extensions": [
       "error",
       "ignorePackages",
-      { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
     ],
     "import/no-default-export": "error",
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/__tests__/*"] }
+      {
+        "devDependencies": ["**/__tests__/*"]
+      }
     ],
     "import/no-unresolved": [
       "error",
-      { "commonjs": true, "amd": true, "caseSensitive": true }
+      {
+        "commonjs": true,
+        "amd": true,
+        "caseSensitive": true
+      }
     ],
     "import/order": [
       "error",
@@ -58,9 +79,7 @@
     ],
     "import/prefer-default-export": "off",
     "no-only-tests/no-only-tests": "error",
-    "no-useless-constructor": "off",
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": "error"
+    "no-useless-constructor": "off"
   },
   "overrides": [
     {
