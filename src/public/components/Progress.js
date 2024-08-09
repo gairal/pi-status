@@ -1,36 +1,36 @@
-import { h, text } from 'https://unpkg.com/hyperapp';
+import { h, text } from "https://unpkg.com/hyperapp";
 
 export default (percentage, classes = {}) =>
   h(
-    'div',
+    "div",
     {
       class: {
-        'bg-gray-900': true,
+        "bg-gray-900": true,
         ...classes,
       },
     },
     [
       h(
-        'div',
+        "div",
         {
-          class: { 'h-full': true, 'bg-gray-700': true },
+          class: { "h-full": true, "bg-gray-700": true },
           style: { width: `${percentage}%` },
         },
         [
           h(
-            'span',
+            "span",
             {
               class: {
                 flex: true,
-                'items-center': true,
-                'h-full': true,
-                'px-2': true,
-                'text-xs': true,
+                "items-center": true,
+                "h-full": true,
+                "px-2": true,
+                "text-xs": true,
               },
             },
-            text(`${percentage}%`)
+            text(`${percentage}%`),
           ),
-        ]
+        ],
       ),
-    ]
+    ],
   );

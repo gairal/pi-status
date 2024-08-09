@@ -1,5 +1,5 @@
-import { Middleware } from "@koa/router";
-import { DefaultState } from "koa";
+import type { Middleware } from "@koa/router";
+import type { DefaultState } from "koa";
 
 import { restart, stop } from "../lib/pm2";
 

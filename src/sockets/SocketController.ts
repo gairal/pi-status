@@ -1,8 +1,11 @@
-import { logger } from "../config";
 import { io } from "../app";
+import { logger } from "../config";
 
 export class SocketController<T> {
-  constructor(private getData: () => Promise<T>, private event: string) {}
+  constructor(
+    private getData: () => Promise<T>,
+    private event: string,
+  ) {}
 
   public async emit() {
     try {
@@ -15,6 +18,7 @@ export class SocketController<T> {
   }
 
   static create<T>(getData: () => Promise<T>, event: string) {
+    // biome-ignore lint/complexity/noThisInStatic: exception
     return new this(getData, event);
   }
 }
