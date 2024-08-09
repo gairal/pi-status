@@ -1,7 +1,7 @@
 import { h } from "https://unpkg.com/hyperapp";
 
-import Process from "./Process.js";
-import System from "./System/index.js";
+import { Process } from "./Process.js";
+import { System } from "./System/index.js";
 
 export const View = ({ processes = [], system }) => {
   const procs = processes.reduce(

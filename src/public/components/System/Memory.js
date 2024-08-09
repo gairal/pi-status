@@ -1,7 +1,7 @@
 import { h } from "https://unpkg.com/hyperapp";
 
-import Badge from "../Badge.js";
-import H2 from "../H2.js";
+import { Badge } from "../Badge.js";
+import { H2 } from "../H2.js";
 import { block, systemBlock } from "../utils.js";
 
 const MemoryBadge = (str) =>

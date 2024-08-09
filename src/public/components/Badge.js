@@ -1,6 +1,6 @@
 import { h, text } from "https://unpkg.com/hyperapp";
-import Icon from "./Icon.js";
-import Separator from "./Separator.js";
+import { Icon } from "./Icon.js";
+import { Separator } from "./Separator.js";
 
 export const Badge = (str, { icon, classes = {} } = {}) =>
   h(
