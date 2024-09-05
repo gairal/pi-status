@@ -23,27 +23,27 @@
   "homepage": "https://github.com/gairal/pi-status#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.0",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@tsconfig/node20": "^20.1.4",
     "@types/koa": "^2.15.0",
-    "@types/koa-static": "^4.0.0",
-    "@types/koa__router": "^12.0.0",
-    "@types/node": "^22.0.2",
-    "@types/socket.io": "^3.0.0",
-    "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
-    "typescript": "^5.5.0"
+    "@types/koa-static": "^4.0.4",
+    "@types/koa__router": "^12.0.4",
+    "@types/node": "^22.5.4",
+    "@types/socket.io": "^3.0.2",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@koa/router": "^13.0.0",
     "date-fns": "^3.6.0",
-    "dotenv": "^16.4.0",
-    "koa": "^2.15.0",
+    "dotenv": "^16.4.5",
+    "koa": "^2.15.3",
     "koa-static": "^5.0.0",
     "pm2": "^5.4.2",
-    "socket.io": "^4.7.0",
-    "systeminformation": "^5.23.2",
-    "winston": "^3.13.0"
+    "socket.io": "^4.7.5",
+    "systeminformation": "^5.23.5",
+    "winston": "^3.14.2"
   }
 }
